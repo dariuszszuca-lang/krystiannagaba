@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
-<body>
+<body class="loading">
     <!-- PRELOADER -->
     <div class="preloader" id="preloader">
         <div class="preloader-inner">
@@ -23,19 +23,19 @@
 
     <!-- NAVIGATION -->
     <nav class="nav" id="nav">
-        <div class="nav-container">
+        <div class="nav-panel">
             <a href="#" class="nav-logo">
                 <img src="assets/logo.png" alt="Krystian Nagaba">
             </a>
-            <div class="nav-panel">
+            <div class="nav-links">
                 <a href="#o-mnie" class="nav-link">O mnie</a>
                 <a href="#ksiazka" class="nav-link">Książka</a>
                 <a href="#projekty" class="nav-link">Projekty</a>
                 <a href="#konsultacje" class="nav-link">Konsultacje</a>
-                <a href="#kontakt" class="nav-cta">
-                    <span>Kontakt</span>
-                </a>
             </div>
+            <a href="#kontakt" class="nav-cta">
+                <span>Kontakt</span>
+            </a>
             <button class="nav-toggle" id="navToggle" aria-label="Menu">
                 <span></span>
                 <span></span>
@@ -142,8 +142,11 @@
     <!-- BOOK -->
     <section id="ksiazka" class="book">
         <div class="book-container">
-            <div class="book-image animate-on-scroll">
-                <img src="assets/ksiazka.png" alt="Wygraj Trzeźwe Życie - książka Krystiana Nagaby">
+            <div class="book-visual animate-on-scroll">
+                <div class="book-image-wrapper">
+                    <div class="book-glow"></div>
+                    <img src="assets/ksiazka.png" alt="Wygraj Trzeźwe Życie - książka Krystiana Nagaby" class="book-image">
+                </div>
             </div>
             <div class="book-content animate-on-scroll">
                 <span class="section-tag">Książka</span>
@@ -154,30 +157,28 @@
                     Praktyczny przewodnik dla osób w drodze do trzeźwości. Napisany z perspektywy
                     kogoś, kto sam przez to przeszedł i od lat pomaga innym.
                 </p>
-                <div class="book-features">
-                    <div class="book-feature">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <ul class="book-features">
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                         <span>Konkretne narzędzia i ćwiczenia</span>
-                    </div>
-                    <div class="book-feature">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                         <span>Zrozumiałe wyjaśnienie mechanizmów</span>
-                    </div>
-                    <div class="book-feature">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                         <span>Wsparcie na każdym etapie trzeźwienia</span>
-                    </div>
-                </div>
-                <div class="book-links">
+                    </li>
+                </ul>
+                <div class="book-actions">
                     <a href="https://wygrajtrzezwezycie.pl" target="_blank" class="btn btn-primary">
                         <span>Kup książkę</span>
                         <div class="btn-shine"></div>
                     </a>
-                    <a href="https://empik.com/wygraj-trzezwe-zycie" target="_blank" class="book-store">
+                    <a href="https://www.empik.com/dobre-zycie-bez-alkoholu-nagaba-krystian,p1683956475,ksiazka-p" target="_blank" class="btn btn-outline">
                         <span>Empik</span>
-                    </a>
-                    <a href="https://allegro.pl/listing?string=wygraj%20trzeźwe%20życie" target="_blank" class="book-store">
-                        <span>Allegro</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                     </a>
                 </div>
             </div>
