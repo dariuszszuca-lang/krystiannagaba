@@ -328,4 +328,30 @@ document.addEventListener('mousemove', (e) => {
     cursorGlow.style.top = e.clientY + 'px';
 });
 
+// ===== STICKY BOTTOM BAR =====
+const bottomBar = document.getElementById('bottomBar');
+let bottomBarShown = false;
+
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+
+    // Show bottom bar after scrolling past hero section
+    if (scrolled > windowHeight * 0.5 && !bottomBarShown) {
+        bottomBar.classList.add('visible');
+        bottomBarShown = true;
+    }
+
+    // Hide when near footer
+    const footer = document.querySelector('.footer');
+    if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        if (footerRect.top < windowHeight) {
+            bottomBar.classList.remove('visible');
+        } else if (scrolled > windowHeight * 0.5) {
+            bottomBar.classList.add('visible');
+        }
+    }
+});
+
 console.log('Krystian Nagaba - Premium Website Loaded');
