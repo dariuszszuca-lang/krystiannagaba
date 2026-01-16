@@ -3,178 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krystian Nagaba - Instruktor Terapii Uzależnień</title>
-    <meta name="description" content="Krystian Nagaba - Instruktor terapii uzależnień z 5-letnim doświadczeniem. Konsultacje indywidualne, wsparcie w drodze do trzeźwości.">
+    <title>Krystian Nagaba — Instruktor Terapii Uzależnień</title>
+    <meta name="description" content="Krystian Nagaba - Instruktor terapii uzależnień z 5-letnim doświadczeniem. 7 lat w trzeźwości. Konsultacje indywidualne, wsparcie w drodze do trzeźwości.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/logo.png" type="image/png">
 </head>
 <body>
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">KN</div>
+            <div class="preloader-bar"></div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="assets/logo.png" alt="Krystian Nagaba">
+            </a>
+            <div class="nav-links">
+                <a href="#o-mnie" class="nav-link">O mnie</a>
+                <a href="#projekty" class="nav-link">Projekty</a>
+                <a href="#konsultacje" class="nav-link">Konsultacje</a>
+                <a href="#kontakt" class="nav-cta">
+                    <span>Umów rozmowę</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
     <!-- HERO -->
     <header class="hero">
-        <nav class="nav">
-            <img src="assets/logo.png" alt="Krystian Nagaba Logo" class="nav-logo">
-            <a href="#kontakt" class="nav-cta">Umów konsultację</a>
-        </nav>
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-particles" id="particles"></div>
+        </div>
 
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Krystian Nagaba</h1>
-                <p class="hero-title">Instruktor Terapii Uzależnień</p>
-                <p class="hero-subtitle">Towarzyszę osobom w drodze do trzeźwości — bez moralizowania, z szacunkiem i zrozumieniem.</p>
-                <div class="hero-buttons">
-                    <a href="#kontakt" class="btn btn-primary">Umów konsultację</a>
-                    <a href="#o-mnie" class="btn btn-secondary">Poznaj mnie</a>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge animate-fade-up">
+                    <span class="badge-dot"></span>
+                    Dostępny na konsultacje
+                </div>
+
+                <h1 class="hero-title animate-fade-up delay-1">
+                    <span class="title-line">Krystian</span>
+                    <span class="title-line title-accent">Nagaba</span>
+                </h1>
+
+                <p class="hero-subtitle animate-fade-up delay-2">
+                    Instruktor Terapii Uzależnień
+                </p>
+
+                <p class="hero-description animate-fade-up delay-3">
+                    Towarzyszę osobom w drodze do trzeźwości — bez moralizowania,
+                    z szacunkiem i zrozumieniem. <strong>7 lat w trzeźwości</strong>,
+                    5 lat doświadczenia jako instruktor.
+                </p>
+
+                <div class="hero-actions animate-fade-up delay-4">
+                    <a href="#konsultacje" class="btn btn-primary">
+                        <span>Umów konsultację</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                    <a href="#o-mnie" class="btn btn-ghost">
+                        <span>Poznaj moją historię</span>
+                    </a>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="assets/krystian.png" alt="Krystian Nagaba">
+
+            <div class="hero-visual animate-fade-left delay-2">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-glow"></div>
+                    <div class="hero-image-ring"></div>
+                    <img src="assets/krystian.png" alt="Krystian Nagaba" class="hero-image">
+                </div>
+
+                <div class="hero-floating-card card-experience">
+                    <div class="floating-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <div class="floating-card-content">
+                        <span class="floating-card-number">7</span>
+                        <span class="floating-card-label">lat trzeźwości</span>
+                    </div>
+                </div>
+
+                <div class="hero-floating-card card-clients">
+                    <div class="floating-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="floating-card-content">
+                        <span class="floating-card-number">500+</span>
+                        <span class="floating-card-label">terapii</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            <span>Przewiń w dół</span>
+            <div class="scroll-indicator">
+                <div class="scroll-dot"></div>
             </div>
         </div>
     </header>
 
-    <!-- SOCIAL PROOF -->
-    <section class="social-proof">
-        <div class="proof-item">
-            <span class="proof-number">7</span>
-            <span class="proof-label">lat w trzeźwości</span>
-        </div>
-        <div class="proof-item">
-            <span class="proof-number">5</span>
-            <span class="proof-label">lat doświadczenia</span>
-        </div>
-        <div class="proof-item">
-            <span class="proof-number">500+</span>
-            <span class="proof-label">przeprowadzonych terapii</span>
-        </div>
-        <div class="proof-item">
-            <span class="proof-number">40 000+</span>
-            <span class="proof-label">obserwujących na Facebooku</span>
+    <!-- STATS -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item" data-count="7">
+                <span class="stat-number">0</span>
+                <span class="stat-label">lat w trzeźwości</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item" data-count="5">
+                <span class="stat-number">0</span>
+                <span class="stat-label">lat doświadczenia</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item" data-count="500" data-suffix="+">
+                <span class="stat-number">0</span>
+                <span class="stat-label">przeprowadzonych terapii</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item" data-count="40" data-suffix="k+">
+                <span class="stat-number">0</span>
+                <span class="stat-label">obserwujących</span>
+            </div>
         </div>
     </section>
 
-    <!-- O MNIE -->
+    <!-- ABOUT -->
     <section id="o-mnie" class="about">
-        <div class="about-content">
-            <h2>O mnie</h2>
-            <p>Jestem <strong>instruktorem terapii uzależnień</strong> z 5-letnim doświadczeniem w pracy w ośrodku terapeutycznym. Sam od <strong>7 lat żyję w trzeźwości</strong> — wiem, przez co przechodzisz, bo sam przez to przeszedłem.</p>
-            <p>Specjalizuję się w psychologii pozytywnej i odporności psychicznej. Moje podejście opiera się na zrozumieniu, nie ocenianiu. Pomagam zrozumieć mechanizmy uzależnienia i znaleźć własną drogę do zdrowienia.</p>
+        <div class="about-container">
+            <div class="about-header">
+                <span class="section-tag animate-on-scroll">O mnie</span>
+                <h2 class="section-title animate-on-scroll">
+                    Wiem, przez co przechodzisz.<br>
+                    <span class="title-gradient">Sam przez to przeszedłem.</span>
+                </h2>
+            </div>
 
-            <div class="credentials">
-                <div class="credential">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                    <span>Instruktor Terapii Uzależnień</span>
+            <div class="about-grid">
+                <div class="about-content animate-on-scroll">
+                    <p class="about-lead">
+                        Jestem instruktorem terapii uzależnień z 5-letnim doświadczeniem
+                        w pracy w ośrodku terapeutycznym. Od <strong>7 lat żyję w trzeźwości</strong>.
+                    </p>
+                    <p>
+                        Moje podejście opiera się na zrozumieniu, nie ocenianiu. Pomagam zrozumieć
+                        mechanizmy uzależnienia i znaleźć własną drogę do zdrowienia. Wierzę, że
+                        każdy zasługuje na szansę — i na kogoś, kto będzie przy nim bez moralizowania.
+                    </p>
+
+                    <div class="credentials-grid">
+                        <div class="credential-card">
+                            <div class="credential-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            </div>
+                            <span>Instruktor Terapii Uzależnień</span>
+                        </div>
+                        <div class="credential-card">
+                            <div class="credential-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                            </div>
+                            <span>Specjalista Psychologii Pozytywnej</span>
+                        </div>
+                        <div class="credential-card">
+                            <div class="credential-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <span>Specjalista Odporności Psychicznej</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="credential">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                    <span>Specjalista Psychologii Pozytywnej</span>
-                </div>
-                <div class="credential">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                    <span>Specjalista Odporności Psychicznej</span>
+
+                <div class="about-visual animate-on-scroll">
+                    <div class="about-quote-card">
+                        <div class="quote-mark">"</div>
+                        <blockquote>
+                            Towarzyszę osobom w drodze do trzeźwości — bez moralizowania,
+                            z szacunkiem i zrozumieniem.
+                        </blockquote>
+                        <div class="quote-author">
+                            <img src="assets/krystian.png" alt="Krystian Nagaba">
+                            <div>
+                                <strong>Krystian Nagaba</strong>
+                                <span>Instruktor Terapii</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CENNIK -->
-    <section id="cennik" class="pricing">
-        <h2>Konsultacje indywidualne</h2>
-        <div class="pricing-card">
-            <div class="pricing-header">
-                <h3>Konsultacja online lub stacjonarna</h3>
-                <div class="price">
-                    <span class="price-amount">500 zł</span>
-                    <span class="price-period">/ 60 minut</span>
+    <!-- PROJECTS -->
+    <section id="projekty" class="projects">
+        <div class="projects-container">
+            <div class="projects-header">
+                <span class="section-tag animate-on-scroll">Projekty</span>
+                <h2 class="section-title animate-on-scroll">
+                    Miejsca, gdzie <span class="title-gradient">pomagam</span>
+                </h2>
+            </div>
+
+            <div class="projects-grid">
+                <a href="https://osrodek-myway.pl" target="_blank" class="project-card project-card-featured animate-on-scroll">
+                    <div class="project-card-bg"></div>
+                    <div class="project-card-content">
+                        <div class="project-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <h3>MyWay Kąpino</h3>
+                        <p>Prywatny Ośrodek Terapii Uzależnień, w którym pracuję jako instruktor terapii.</p>
+                        <span class="project-link">
+                            Odwiedź stronę
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <a href="https://edu-myway.pl" target="_blank" class="project-card animate-on-scroll">
+                    <div class="project-card-bg"></div>
+                    <div class="project-card-content">
+                        <div class="project-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        </div>
+                        <h3>EduMyWay</h3>
+                        <p>Platforma edukacyjna z materiałami o uzależnieniach i trzeźwieniu.</p>
+                        <span class="project-link">
+                            Odwiedź stronę
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <a href="https://wygrajtrzezwezycie.pl" target="_blank" class="project-card animate-on-scroll">
+                    <div class="project-card-bg"></div>
+                    <div class="project-card-content">
+                        <div class="project-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        </div>
+                        <h3>Wygraj Trzeźwe Życie</h3>
+                        <p>Moja książka — praktyczny przewodnik dla osób w drodze do trzeźwości.</p>
+                        <span class="project-link">
+                            Zobacz książkę
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONSULTATION -->
+    <section id="konsultacje" class="consultation">
+        <div class="consultation-container">
+            <div class="consultation-content animate-on-scroll">
+                <span class="section-tag">Konsultacje</span>
+                <h2 class="section-title">
+                    Indywidualne <span class="title-gradient">wsparcie</span>
+                </h2>
+                <p class="consultation-description">
+                    Każda rozmowa jest inna, bo każda historia jest inna.
+                    Oferuję indywidualne konsultacje online lub stacjonarnie —
+                    w bezpiecznej, poufnej atmosferze.
+                </p>
+
+                <ul class="consultation-features">
+                    <li>
+                        <div class="feature-check">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span>Indywidualne podejście do Twojej sytuacji</span>
+                    </li>
+                    <li>
+                        <div class="feature-check">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span>Rozmowa w bezpiecznej, poufnej atmosferze</span>
+                    </li>
+                    <li>
+                        <div class="feature-check">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span>Konkretne narzędzia do pracy nad sobą</span>
+                    </li>
+                    <li>
+                        <div class="feature-check">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span>Online (Zoom) lub stacjonarnie</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="consultation-card animate-on-scroll">
+                <div class="pricing-card">
+                    <div class="pricing-card-glow"></div>
+                    <div class="pricing-badge">Konsultacja</div>
+                    <div class="pricing-amount">
+                        <span class="currency">PLN</span>
+                        <span class="price">500</span>
+                        <span class="period">/ 60 min</span>
+                    </div>
+                    <p class="pricing-note">
+                        Jedna godzina indywidualnej rozmowy i wsparcia
+                    </p>
+                    <a href="#kontakt" class="btn btn-primary btn-full">
+                        <span>Umów konsultację</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                    <p class="pricing-guarantee">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Pełna poufność i dyskrecja
+                    </p>
                 </div>
             </div>
-            <ul class="pricing-features">
-                <li>Indywidualne podejście do Twojej sytuacji</li>
-                <li>Rozmowa w bezpiecznej, poufnej atmosferze</li>
-                <li>Konkretne narzędzia do pracy nad sobą</li>
-                <li>Możliwość spotkania online (Zoom) lub stacjonarnie</li>
-            </ul>
-            <a href="#kontakt" class="btn btn-primary btn-full">Umów konsultację</a>
         </div>
     </section>
 
-    <!-- PROJEKTY -->
-    <section class="projects">
-        <h2>Moje projekty</h2>
-        <div class="projects-grid">
-            <a href="https://osrodek-myway.pl" target="_blank" class="project-card">
-                <div class="project-icon">🏥</div>
-                <h3>MyWay Kąpino</h3>
-                <p>Prywatny Ośrodek Terapii Uzależnień, w którym pracuję jako instruktor terapii.</p>
-            </a>
-            <a href="https://edu-myway.pl" target="_blank" class="project-card">
-                <div class="project-icon">📚</div>
-                <h3>EduMyWay</h3>
-                <p>Platforma edukacyjna z materiałami o uzależnieniach i trzeźwieniu.</p>
-            </a>
-            <a href="https://wygrajtrzezwezycie.pl" target="_blank" class="project-card">
-                <div class="project-icon">📖</div>
-                <h3>Wygraj Trzeźwe Życie</h3>
-                <p>Moja książka — praktyczny przewodnik dla osób w drodze do trzeźwości.</p>
-            </a>
+    <!-- SOCIAL -->
+    <section class="social">
+        <div class="social-container">
+            <div class="social-header">
+                <span class="section-tag animate-on-scroll">Social Media</span>
+                <h2 class="section-title animate-on-scroll">
+                    Dołącz do <span class="title-gradient">społeczności</span>
+                </h2>
+            </div>
+
+            <div class="social-grid">
+                <a href="https://facebook.com/krystian.nagaba" target="_blank" class="social-card animate-on-scroll">
+                    <div class="social-card-bg"></div>
+                    <div class="social-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </div>
+                    <div class="social-info">
+                        <span class="social-name">Facebook</span>
+                        <span class="social-count">40 000+ obserwujących</span>
+                    </div>
+                    <div class="social-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </div>
+                </a>
+
+                <a href="https://youtube.com/@krystiannagaba" target="_blank" class="social-card animate-on-scroll">
+                    <div class="social-card-bg"></div>
+                    <div class="social-icon social-youtube">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </div>
+                    <div class="social-info">
+                        <span class="social-name">YouTube</span>
+                        <span class="social-count">1 100+ subskrybentów</span>
+                    </div>
+                    <div class="social-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </div>
+                </a>
+
+                <a href="https://instagram.com/krystian.nagaba" target="_blank" class="social-card animate-on-scroll">
+                    <div class="social-card-bg"></div>
+                    <div class="social-icon social-instagram">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </div>
+                    <div class="social-info">
+                        <span class="social-name">Instagram</span>
+                        <span class="social-count">Obserwuj</span>
+                    </div>
+                    <div class="social-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- SOCIAL MEDIA -->
-    <section class="social-media">
-        <h2>Znajdziesz mnie także tutaj</h2>
-        <div class="social-grid">
-            <a href="https://facebook.com/krystian.nagaba" target="_blank" class="social-card social-facebook">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                <span class="social-name">Facebook</span>
-                <span class="social-followers">40 000+ obserwujących</span>
-            </a>
-            <a href="https://youtube.com/@krystiannagaba" target="_blank" class="social-card social-youtube">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                <span class="social-name">YouTube</span>
-                <span class="social-followers">1 100+ subskrybentów</span>
-            </a>
-            <a href="https://instagram.com/krystian.nagaba" target="_blank" class="social-card social-instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-                <span class="social-name">Instagram</span>
-                <span class="social-followers">Obserwuj</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- KONTAKT -->
+    <!-- CONTACT -->
     <section id="kontakt" class="contact">
-        <div class="contact-content">
-            <h2>Porozmawiajmy</h2>
-            <p>Jeśli szukasz wsparcia w drodze do trzeźwości lub masz pytania — napisz do mnie. Pierwszy krok jest najtrudniejszy, ale nie musisz go stawiać sam.</p>
+        <div class="contact-container">
+            <div class="contact-content animate-on-scroll">
+                <span class="section-tag section-tag-light">Kontakt</span>
+                <h2 class="section-title section-title-light">
+                    Pierwszy krok jest <span class="title-gradient-light">najtrudniejszy</span>
+                </h2>
+                <p class="contact-description">
+                    Nie musisz go stawiać sam. Jeśli szukasz wsparcia w drodze do trzeźwości
+                    lub masz pytania — napisz do mnie. Odpowiadam osobiście.
+                </p>
 
-            <div class="contact-methods">
-                <a href="mailto:kontakt@krystiannagaba.pl" class="contact-method">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                    <span>kontakt@krystiannagaba.pl</span>
-                </a>
-                <a href="https://facebook.com/krystian.nagaba" target="_blank" class="contact-method">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    <span>Napisz na Facebooku</span>
-                </a>
+                <div class="contact-methods">
+                    <a href="mailto:kontakt@krystiannagaba.pl" class="contact-method">
+                        <div class="contact-method-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </div>
+                        <div class="contact-method-info">
+                            <span class="contact-method-label">Email</span>
+                            <span class="contact-method-value">kontakt@krystiannagaba.pl</span>
+                        </div>
+                    </a>
+
+                    <a href="https://m.me/krystian.nagaba" target="_blank" class="contact-method">
+                        <div class="contact-method-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.936 1.444 5.548 3.7 7.254V22l3.405-1.856c.91.252 1.876.388 2.895.388 5.523 0 10-4.145 10-9.243S17.523 2 12 2zm1.002 12.461l-2.54-2.7-4.96 2.7 5.46-5.78 2.6 2.7 4.9-2.7-5.46 5.78z"/></svg>
+                        </div>
+                        <div class="contact-method-info">
+                            <span class="contact-method-label">Messenger</span>
+                            <span class="contact-method-value">Napisz wiadomość</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-visual animate-on-scroll">
+                <div class="contact-card">
+                    <div class="contact-card-inner">
+                        <img src="assets/krystian.png" alt="Krystian Nagaba" class="contact-card-image">
+                        <h3>Krystian Nagaba</h3>
+                        <p>Instruktor Terapii Uzależnień</p>
+                        <div class="contact-card-links">
+                            <a href="https://facebook.com/krystian.nagaba" target="_blank" aria-label="Facebook">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </a>
+                            <a href="https://youtube.com/@krystiannagaba" target="_blank" aria-label="YouTube">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </a>
+                            <a href="https://instagram.com/krystian.nagaba" target="_blank" aria-label="Instagram">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-content">
-            <img src="assets/logo.png" alt="Krystian Nagaba" class="footer-logo">
-            <p>Krystian Nagaba — Instruktor Terapii Uzależnień</p>
-            <div class="footer-links">
-                <a href="https://osrodek-myway.pl" target="_blank">osrodek-myway.pl</a>
-                <a href="https://edu-myway.pl" target="_blank">edu-myway.pl</a>
-                <a href="https://wygrajtrzezwezycie.pl" target="_blank">wygrajtrzezwezycie.pl</a>
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <img src="assets/logo.png" alt="Krystian Nagaba" class="footer-logo">
+                    <p>Instruktor Terapii Uzależnień z 5-letnim doświadczeniem.
+                    Towarzyszę osobom w drodze do trzeźwości.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Projekty</h4>
+                        <a href="https://osrodek-myway.pl" target="_blank">MyWay Kąpino</a>
+                        <a href="https://edu-myway.pl" target="_blank">EduMyWay</a>
+                        <a href="https://wygrajtrzezwezycie.pl" target="_blank">Wygraj Trzeźwe Życie</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Social Media</h4>
+                        <a href="https://facebook.com/krystian.nagaba" target="_blank">Facebook</a>
+                        <a href="https://youtube.com/@krystiannagaba" target="_blank">YouTube</a>
+                        <a href="https://instagram.com/krystian.nagaba" target="_blank">Instagram</a>
+                    </div>
+                </div>
             </div>
-            <p class="footer-copy">© 2025 Krystian Nagaba. Wszelkie prawa zastrzeżone.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Krystian Nagaba. Wszelkie prawa zastrzeżone.</p>
+            </div>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
