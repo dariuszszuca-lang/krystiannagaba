@@ -536,6 +536,91 @@
         </div>
     </footer>
 
+    <!-- COOKIE BANNER -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-header">
+                <h3>Ustawienia prywatności</h3>
+                <button class="cookie-close" id="cookieClose" aria-label="Zamknij">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <p class="cookie-text">
+                Ta strona używa plików cookies, aby zapewnić najlepsze doświadczenie użytkownika.
+                Możesz wybrać, które kategorie cookies chcesz zaakceptować.
+            </p>
+
+            <div class="cookie-categories">
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <label class="cookie-toggle">
+                            <input type="checkbox" checked disabled>
+                            <span class="cookie-slider disabled"></span>
+                        </label>
+                        <div class="cookie-category-info">
+                            <span class="cookie-category-name">Niezbędne</span>
+                            <span class="cookie-category-desc">Wymagane do działania strony</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="cookieAnalytics">
+                            <span class="cookie-slider"></span>
+                        </label>
+                        <div class="cookie-category-info">
+                            <span class="cookie-category-name">Analityczne</span>
+                            <span class="cookie-category-desc">Pomagają zrozumieć, jak korzystasz ze strony</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="cookieMarketing">
+                            <span class="cookie-slider"></span>
+                        </label>
+                        <div class="cookie-category-info">
+                            <span class="cookie-category-name">Marketingowe</span>
+                            <span class="cookie-category-desc">Służą do personalizacji reklam</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cookie-actions">
+                <button class="cookie-btn cookie-btn-reject" id="cookieReject">Odrzuć wszystkie</button>
+                <button class="cookie-btn cookie-btn-save" id="cookieSave">Zapisz wybór</button>
+                <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Akceptuj wszystkie</button>
+            </div>
+
+            <div class="cookie-footer">
+                <p>
+                    Więcej informacji znajdziesz w naszej
+                    <a href="polityka-prywatnosci.html" target="_blank">Polityce Prywatności</a>.
+                </p>
+                <p class="cookie-contact">
+                    Kontakt: <a href="mailto:kontakt@krystiannagaba.pl">kontakt@krystiannagaba.pl</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- COOKIE ICON (after closing) -->
+    <button class="cookie-icon" id="cookieIcon" aria-label="Ustawienia cookies">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="8" cy="9" r="1.5" fill="currentColor"/>
+            <circle cx="15" cy="8" r="1" fill="currentColor"/>
+            <circle cx="10" cy="14" r="1" fill="currentColor"/>
+            <circle cx="16" cy="13" r="1.5" fill="currentColor"/>
+            <circle cx="13" cy="17" r="1" fill="currentColor"/>
+        </svg>
+    </button>
+
     <!-- STICKY BOTTOM BAR -->
     <div class="bottom-bar" id="bottomBar">
         <div class="bottom-bar-container">

@@ -354,4 +354,94 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// ===== COOKIE BANNER =====
+const cookieBanner = document.getElementById('cookieBanner');
+const cookieIcon = document.getElementById('cookieIcon');
+const cookieClose = document.getElementById('cookieClose');
+const cookieAccept = document.getElementById('cookieAccept');
+const cookieReject = document.getElementById('cookieReject');
+const cookieSave = document.getElementById('cookieSave');
+const cookieAnalytics = document.getElementById('cookieAnalytics');
+const cookieMarketing = document.getElementById('cookieMarketing');
+
+// Check if user has already made a choice
+function getCookieConsent() {
+    return localStorage.getItem('cookieConsent');
+}
+
+// Save cookie consent
+function saveCookieConsent(consent) {
+    localStorage.setItem('cookieConsent', JSON.stringify(consent));
+}
+
+// Show banner
+function showCookieBanner() {
+    cookieBanner.classList.add('visible');
+    cookieIcon.classList.remove('visible');
+}
+
+// Hide banner and show icon
+function hideCookieBanner() {
+    cookieBanner.classList.remove('visible');
+    cookieIcon.classList.add('visible');
+}
+
+// Initialize on page load
+if (!getCookieConsent()) {
+    setTimeout(() => {
+        showCookieBanner();
+    }, 1000);
+} else {
+    cookieIcon.classList.add('visible');
+}
+
+// Close button - just hides, shows icon
+if (cookieClose) {
+    cookieClose.addEventListener('click', hideCookieBanner);
+}
+
+// Cookie icon - reopens banner
+if (cookieIcon) {
+    cookieIcon.addEventListener('click', showCookieBanner);
+}
+
+// Accept all
+if (cookieAccept) {
+    cookieAccept.addEventListener('click', () => {
+        saveCookieConsent({
+            necessary: true,
+            analytics: true,
+            marketing: true,
+            timestamp: new Date().toISOString()
+        });
+        hideCookieBanner();
+    });
+}
+
+// Reject all
+if (cookieReject) {
+    cookieReject.addEventListener('click', () => {
+        saveCookieConsent({
+            necessary: true,
+            analytics: false,
+            marketing: false,
+            timestamp: new Date().toISOString()
+        });
+        hideCookieBanner();
+    });
+}
+
+// Save custom selection
+if (cookieSave) {
+    cookieSave.addEventListener('click', () => {
+        saveCookieConsent({
+            necessary: true,
+            analytics: cookieAnalytics ? cookieAnalytics.checked : false,
+            marketing: cookieMarketing ? cookieMarketing.checked : false,
+            timestamp: new Date().toISOString()
+        });
+        hideCookieBanner();
+    });
+}
+
 console.log('Krystian Nagaba - Premium Website Loaded');
