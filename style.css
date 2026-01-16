@@ -163,7 +163,7 @@ a {
 }
 
 .nav-logo img {
-    height: 70px;
+    height: 56px;
     width: auto;
     transition: transform var(--transition-base);
 }
