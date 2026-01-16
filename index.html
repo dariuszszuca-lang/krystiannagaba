@@ -23,10 +23,10 @@
 
     <!-- NAVIGATION -->
     <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">
+            <img src="assets/logo.png" alt="Krystian Nagaba">
+        </a>
         <div class="nav-panel">
-            <a href="#" class="nav-logo">
-                <img src="assets/logo.png" alt="Krystian Nagaba">
-            </a>
             <div class="nav-links">
                 <a href="#o-mnie" class="nav-link">O mnie</a>
                 <a href="#ksiazka" class="nav-link">Książka</a>
@@ -141,46 +141,56 @@
 
     <!-- BOOK -->
     <section id="ksiazka" class="book">
+        <div class="book-particles" id="bookParticles"></div>
         <div class="book-container">
             <div class="book-visual animate-on-scroll">
                 <div class="book-image-wrapper">
+                    <div class="book-badge">Bestseller</div>
                     <div class="book-glow"></div>
                     <img src="assets/ksiazka.png" alt="Wygraj Trzeźwe Życie - książka Krystiana Nagaby" class="book-image">
                 </div>
+                <div class="book-stores">
+                    <span class="book-stores-label">Dostępna w:</span>
+                    <div class="book-stores-list">
+                        <a href="https://wygrajtrzezwezycie.pl" target="_blank" class="book-store-link">Sklep autora</a>
+                        <a href="https://www.empik.com/dobre-zycie-bez-alkoholu-nagaba-krystian,p1683956475,ksiazka-p" target="_blank" class="book-store-link">Empik</a>
+                    </div>
+                </div>
             </div>
             <div class="book-content animate-on-scroll">
-                <span class="section-tag">Książka</span>
+                <span class="section-tag">Nowa Książka</span>
                 <h2 class="section-title">
                     Wygraj <span class="title-gradient">Trzeźwe Życie</span>
                 </h2>
+                <p class="book-subtitle">Praktyczny przewodnik dla osób w drodze do trzeźwości</p>
                 <p class="book-description">
-                    Praktyczny przewodnik dla osób w drodze do trzeźwości. Napisany z perspektywy
-                    kogoś, kto sam przez to przeszedł i od lat pomaga innym.
+                    Napisana z perspektywy kogoś, kto sam przez to przeszedł i od lat pomaga innym.
+                    Książka, która pokazuje, że zmiana jest możliwa.
                 </p>
                 <ul class="book-features">
                     <li>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        <span>Konkretne narzędzia i ćwiczenia</span>
+                        <span>Konkretne narzędzia i ćwiczenia do codziennego stosowania</span>
                     </li>
                     <li>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        <span>Zrozumiałe wyjaśnienie mechanizmów</span>
+                        <span>Zrozumiałe wyjaśnienie mechanizmów uzależnienia</span>
                     </li>
                     <li>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        <span>Wsparcie na każdym etapie trzeźwienia</span>
+                        <span>Wsparcie na każdym etapie procesu trzeźwienia</span>
                     </li>
                 </ul>
                 <div class="book-actions">
-                    <a href="https://wygrajtrzezwezycie.pl" target="_blank" class="btn btn-primary">
-                        <span>Kup książkę</span>
+                    <a href="https://wygrajtrzezwezycie.pl" target="_blank" class="btn btn-primary btn-lg">
+                        <span>Zamów teraz</span>
                         <div class="btn-shine"></div>
                     </a>
-                    <a href="https://www.empik.com/dobre-zycie-bez-alkoholu-nagaba-krystian,p1683956475,ksiazka-p" target="_blank" class="btn btn-outline">
-                        <span>Empik</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-                    </a>
                 </div>
+                <p class="book-note">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                    Darmowa dostawa przy zamówieniu ze strony autora
+                </p>
             </div>
         </div>
     </section>
@@ -246,6 +256,7 @@
 
     <!-- PROJECTS -->
     <section id="projekty" class="projects">
+        <div class="projects-particles" id="projectsParticles"></div>
         <div class="projects-container">
             <div class="projects-header">
                 <span class="section-tag animate-on-scroll">Projekty</span>

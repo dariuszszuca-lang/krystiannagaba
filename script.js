@@ -114,11 +114,9 @@ function animateCounter(element, start, end, duration, suffix) {
 }
 
 // ===== PARTICLES =====
-function createParticles() {
-    const container = document.getElementById('particles');
+function createParticlesInContainer(containerId, particleCount = 50) {
+    const container = document.getElementById(containerId);
     if (!container) return;
-
-    const particleCount = 50;
 
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
@@ -166,7 +164,10 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-createParticles();
+// Create particles in hero, book, and projects sections
+createParticlesInContainer('particles', 50);
+createParticlesInContainer('bookParticles', 35);
+createParticlesInContainer('projectsParticles', 35);
 
 // ===== MOBILE MENU =====
 const navToggle = document.getElementById('navToggle');
