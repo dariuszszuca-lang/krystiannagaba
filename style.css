@@ -973,7 +973,17 @@ a {
 
 .about-content p {
     color: var(--color-text-light);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-highlight {
+    font-size: 1.125rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.about-highlight strong {
+    color: var(--color-accent);
 }
 
 .credentials-grid {
