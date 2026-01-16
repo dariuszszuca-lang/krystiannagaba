@@ -467,6 +467,16 @@ a {
     color: var(--color-white);
 }
 
+.hero-stats {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2rem;
+}
+
+.hero-stats strong {
+    color: var(--color-accent-light);
+}
+
 .hero-actions {
     display: flex;
     gap: 1rem;
