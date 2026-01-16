@@ -167,7 +167,7 @@ a {
     height: 200px;
     width: auto;
     transition: transform var(--transition-base);
-    filter: brightness(0) invert(1);
+    filter: invert(1);
 }
 
 .nav.scrolled .nav-logo img {
@@ -1702,7 +1702,7 @@ a {
 .footer-logo {
     height: 160px;
     margin-bottom: 1.5rem;
-    filter: brightness(0) invert(1);
+    filter: invert(1);
 }
 
 .footer-brand p {
