@@ -149,12 +149,12 @@ a {
     left: 0;
     right: 0;
     z-index: 100;
-    padding: 1.25rem 2rem;
+    padding: 1.5rem 2rem;
     transition: all var(--transition-base);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .nav-logo {
@@ -164,7 +164,7 @@ a {
 }
 
 .nav-logo img {
-    height: 72px;
+    height: 100px;
     width: auto;
     transition: transform var(--transition-base);
     filter: brightness(0) invert(1);
@@ -771,7 +771,7 @@ a {
 }
 
 .book-image {
-    max-width: 420px;
+    max-width: 500px;
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -784,41 +784,6 @@ a {
 
 .book-image:hover {
     transform: translateY(-8px) rotate(-1deg);
-}
-
-.book-stores {
-    margin-top: 1.5rem;
-    text-align: center;
-}
-
-.book-stores-label {
-    display: block;
-    font-size: 0.8125rem;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 0.75rem;
-}
-
-.book-stores-list {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.book-store-link {
-    font-size: 0.9375rem;
-    color: rgba(255,255,255,0.9);
-    padding: 0.75rem 1.5rem;
-    background: rgba(255,255,255,0.1);
-    border-radius: 100px;
-    transition: all var(--transition-base);
-    white-space: nowrap;
-    min-width: 140px;
-    text-align: center;
-}
-
-.book-store-link:hover {
-    background: rgba(255,255,255,0.2);
-    color: #fff;
 }
 
 .book-content {
@@ -1735,7 +1700,7 @@ a {
 }
 
 .footer-logo {
-    height: 120px;
+    height: 160px;
     margin-bottom: 1.5rem;
     filter: brightness(0) invert(1);
 }
