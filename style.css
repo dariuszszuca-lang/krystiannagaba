@@ -164,7 +164,7 @@ a {
 }
 
 .nav-logo img {
-    height: 140px;
+    height: 200px;
     width: auto;
     transition: transform var(--transition-base);
     filter: brightness(0) invert(1);
