@@ -154,7 +154,6 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
 }
 
 .nav-logo {
@@ -164,14 +163,9 @@ a {
 }
 
 .nav-logo img {
-    height: 200px;
+    height: 70px;
     width: auto;
     transition: transform var(--transition-base);
-    filter: invert(1);
-}
-
-.nav.scrolled .nav-logo img {
-    filter: none;
 }
 
 .nav-logo:hover img {
