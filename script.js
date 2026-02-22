@@ -444,4 +444,36 @@ if (cookieSave) {
     });
 }
 
+// ===== VIDEO MODAL =====
+const videoTrigger = document.getElementById('videoTrigger');
+const videoModal = document.getElementById('videoModal');
+const videoModalClose = document.getElementById('videoModalClose');
+const videoModalCloseBtn = document.getElementById('videoModalCloseBtn');
+const videoIframe = document.getElementById('videoIframe');
+const videoSrc = 'https://www.youtube.com/embed/PnaRKAnqV-c?autoplay=1&rel=0';
+
+function openVideoModal() {
+    videoIframe.src = videoSrc;
+    videoModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+    videoModal.classList.remove('active');
+    videoIframe.src = '';
+    document.body.style.overflow = '';
+}
+
+if (videoTrigger) {
+    videoTrigger.addEventListener('click', openVideoModal);
+    videoTrigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') openVideoModal();
+    });
+}
+if (videoModalClose) videoModalClose.addEventListener('click', closeVideoModal);
+if (videoModalCloseBtn) videoModalCloseBtn.addEventListener('click', closeVideoModal);
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoModal.classList.contains('active')) closeVideoModal();
+});
+
 console.log('Krystian Nagaba - Premium Website Loaded');

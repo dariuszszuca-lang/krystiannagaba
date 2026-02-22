@@ -254,6 +254,38 @@
         </div>
     </section>
 
+    <!-- VIDEO - Halo tu Polsat -->
+    <section class="video-section">
+        <div class="video-container">
+            <div class="video-header">
+                <span class="section-tag animate-on-scroll">W mediach</span>
+                <h2 class="section-title animate-on-scroll">
+                    Krystian Nagaba w <span class="title-gradient">Halo tu Polsat</span>
+                </h2>
+            </div>
+            <div class="video-frame animate-on-scroll" id="videoTrigger" role="button" tabindex="0" aria-label="Odtwórz film">
+                <img src="https://img.youtube.com/vi/PnaRKAnqV-c/maxresdefault.jpg" alt="Krystian Nagaba w Halo tu Polsat" class="video-thumbnail">
+                <div class="video-play-btn">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <div class="video-overlay-text">Kliknij aby odtworzyć</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO MODAL -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-backdrop" id="videoModalClose"></div>
+        <div class="video-modal-content">
+            <button class="video-modal-close" id="videoModalCloseBtn" aria-label="Zamknij">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            <div class="video-modal-player">
+                <iframe id="videoIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
     <!-- PROJECTS -->
     <section id="projekty" class="projects">
         <div class="projects-particles" id="projectsParticles"></div>
