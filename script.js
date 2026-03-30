@@ -84,7 +84,7 @@ const counterObserver = new IntersectionObserver((entries) => {
             counterObserver.unobserve(entry.target);
         }
     });
-}, { threshold: 0.5 });
+}, { threshold: 0.1 });
 
 const statsSection = document.querySelector('.stats');
 if (statsSection) {
