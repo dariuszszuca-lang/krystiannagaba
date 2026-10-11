@@ -1,479 +1,71 @@
-// ===== PRELOADER =====
-document.addEventListener('DOMContentLoaded', () => {
-    const preloader = document.getElementById('preloader');
+// krystiannagaba.pl: menu, wejścia sekcji, odtwarzacz YouTube ładowany po kliknięciu
 
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-            document.body.classList.remove('loading');
-        }, 800);
+(function () {
+    var nav = document.getElementById('nav');
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    var callbar = document.getElementById('callbar');
+
+    // Cień pod menu po przewinięciu + pasek z telefonem na małych ekranach
+    function onScroll() {
+        var y = window.scrollY;
+        nav.classList.toggle('is-stuck', y > 8);
+        if (callbar) callbar.classList.toggle('is-on', y > 520);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Menu na telefonie
+    function closeMenu() {
+        links.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Otwórz menu');
+    }
+    toggle.addEventListener('click', function () {
+        var open = links.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Zamknij menu' : 'Otwórz menu');
     });
-});
+    links.addEventListener('click', function (e) {
+        if (e.target.closest('a')) closeMenu();
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMenu();
+    });
 
-// ===== NAVIGATION SCROLL =====
-const nav = document.getElementById('nav');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 50) {
-        nav.classList.add('scrolled');
+    // Wejścia sekcji
+    var items = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-in');
+                io.unobserve(entry.target);
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        items.forEach(function (el, i) {
+            el.style.transitionDelay = (i % 4) * 70 + 'ms';
+            io.observe(el);
+        });
     } else {
-        nav.classList.remove('scrolled');
+        items.forEach(function (el) { el.classList.add('is-in'); });
     }
 
-    lastScroll = currentScroll;
-});
-
-// ===== SMOOTH SCROLL =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offset = 80;
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// ===== SCROLL ANIMATIONS =====
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-
-            // Staggered animation for children
-            const children = entry.target.querySelectorAll('.animate-on-scroll');
-            children.forEach((child, index) => {
-                setTimeout(() => {
-                    child.classList.add('visible');
-                }, index * 100);
-            });
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.animate-on-scroll').forEach(el => {
-    observer.observe(el);
-});
-
-// ===== COUNTER ANIMATION =====
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const counters = entry.target.querySelectorAll('.stat-item');
-            counters.forEach(counter => {
-                const target = parseInt(counter.dataset.count);
-                const suffix = counter.dataset.suffix || '';
-                const numberEl = counter.querySelector('.stat-number');
-
-                animateCounter(numberEl, 0, target, 2000, suffix);
-            });
-            counterObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1 });
-
-const statsSection = document.querySelector('.stats');
-if (statsSection) {
-    counterObserver.observe(statsSection);
-}
-
-function animateCounter(element, start, end, duration, suffix) {
-    const range = end - start;
-    const startTime = performance.now();
-
-    function update(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-
-        // Easing function
-        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-        const current = Math.round(start + range * easeOutQuart);
-
-        element.textContent = current + suffix;
-
-        if (progress < 1) {
-            requestAnimationFrame(update);
-        }
-    }
-
-    requestAnimationFrame(update);
-}
-
-// ===== PARTICLES =====
-function createParticlesInContainer(containerId, particleCount = 50) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-
-        const size = Math.random() * 4 + 1;
-        const x = Math.random() * 100;
-        const y = Math.random() * 100;
-        const duration = Math.random() * 20 + 10;
-        const delay = Math.random() * 5;
-
-        particle.style.cssText = `
-            position: absolute;
-            width: ${size}px;
-            height: ${size}px;
-            background: rgba(255, 255, 255, ${Math.random() * 0.3 + 0.1});
-            border-radius: 50%;
-            left: ${x}%;
-            top: ${y}%;
-            animation: particleFloat ${duration}s ease-in-out ${delay}s infinite;
-        `;
-
-        container.appendChild(particle);
-    }
-}
-
-// Add particle animation to stylesheet
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes particleFloat {
-        0%, 100% {
-            transform: translateY(0) translateX(0);
-            opacity: 0;
-        }
-        10% {
-            opacity: 1;
-        }
-        90% {
-            opacity: 1;
-        }
-        50% {
-            transform: translateY(-100px) translateX(50px);
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// Create particles in hero, book, and projects sections
-createParticlesInContainer('particles', 50);
-createParticlesInContainer('bookParticles', 35);
-createParticlesInContainer('projectsParticles', 35);
-
-// ===== MOBILE MENU =====
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.querySelector('.nav-links');
-
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        navToggle.classList.toggle('active');
-    });
-}
-
-// ===== BUTTON SHINE EFFECT =====
-document.querySelectorAll('.btn-primary').forEach(btn => {
-    btn.addEventListener('mouseenter', function() {
-        const shine = this.querySelector('.btn-shine');
-        if (shine) {
-            shine.style.left = '-100%';
-            setTimeout(() => {
-                shine.style.transition = 'left 0.5s ease';
-                shine.style.left = '100%';
-            }, 10);
-        }
-    });
-
-    btn.addEventListener('mouseleave', function() {
-        const shine = this.querySelector('.btn-shine');
-        if (shine) {
-            shine.style.transition = 'none';
-            shine.style.left = '-100%';
-        }
-    });
-});
-
-// ===== PARALLAX EFFECT =====
-const heroVisual = document.querySelector('.hero-visual');
-
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    if (heroVisual && scrolled < window.innerHeight) {
-        heroVisual.style.transform = `translateY(${scrolled * 0.1}px)`;
-    }
-});
-
-// ===== TILT EFFECT ON CARDS =====
-document.querySelectorAll('.project-card, .social-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-    });
-});
-
-// ===== TYPING EFFECT FOR HERO (optional) =====
-function typeWriter(element, text, speed = 50) {
-    let i = 0;
-    element.textContent = '';
-
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-
-    type();
-}
-
-// ===== MAGNETIC BUTTON EFFECT =====
-document.querySelectorAll('.nav-cta, .btn-primary').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-    });
-
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate(0, 0)';
-    });
-});
-
-// ===== SCROLL PROGRESS =====
-const scrollProgress = document.createElement('div');
-scrollProgress.className = 'scroll-progress';
-scrollProgress.innerHTML = '<div class="scroll-progress-bar"></div>';
-document.body.appendChild(scrollProgress);
-
-const progressStyle = document.createElement('style');
-progressStyle.textContent = `
-    .scroll-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: rgba(255,255,255,0.1);
-        z-index: 9999;
-    }
-    .scroll-progress-bar {
-        height: 100%;
-        background: linear-gradient(90deg, #3b82f6, #60a5fa);
-        width: 0%;
-        transition: width 0.1s ease;
-    }
-`;
-document.head.appendChild(progressStyle);
-
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-    document.querySelector('.scroll-progress-bar').style.width = scrollPercent + '%';
-});
-
-// ===== CURSOR GLOW EFFECT =====
-const cursorGlow = document.createElement('div');
-cursorGlow.className = 'cursor-glow';
-document.body.appendChild(cursorGlow);
-
-const cursorStyle = document.createElement('style');
-cursorStyle.textContent = `
-    .cursor-glow {
-        position: fixed;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-        border-radius: 50%;
-        pointer-events: none;
-        transform: translate(-50%, -50%);
-        z-index: 0;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    .hero:hover .cursor-glow,
-    .contact:hover .cursor-glow {
-        opacity: 1;
-    }
-`;
-document.head.appendChild(cursorStyle);
-
-document.addEventListener('mousemove', (e) => {
-    cursorGlow.style.left = e.clientX + 'px';
-    cursorGlow.style.top = e.clientY + 'px';
-});
-
-// ===== STICKY BOTTOM BAR =====
-const bottomBar = document.getElementById('bottomBar');
-let bottomBarShown = false;
-
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const windowHeight = window.innerHeight;
-
-    // Show bottom bar after scrolling past hero section
-    if (scrolled > windowHeight * 0.5 && !bottomBarShown) {
-        bottomBar.classList.add('visible');
-        bottomBarShown = true;
-    }
-
-    // Hide when near footer
-    const footer = document.querySelector('.footer');
-    if (footer) {
-        const footerRect = footer.getBoundingClientRect();
-        if (footerRect.top < windowHeight) {
-            bottomBar.classList.remove('visible');
-        } else if (scrolled > windowHeight * 0.5) {
-            bottomBar.classList.add('visible');
-        }
-    }
-});
-
-// ===== COOKIE BANNER =====
-const cookieBanner = document.getElementById('cookieBanner');
-const cookieIcon = document.getElementById('cookieIcon');
-const cookieClose = document.getElementById('cookieClose');
-const cookieAccept = document.getElementById('cookieAccept');
-const cookieReject = document.getElementById('cookieReject');
-const cookieSave = document.getElementById('cookieSave');
-const cookieAnalytics = document.getElementById('cookieAnalytics');
-const cookieMarketing = document.getElementById('cookieMarketing');
-
-// Check if user has already made a choice
-function getCookieConsent() {
-    return localStorage.getItem('cookieConsent');
-}
-
-// Save cookie consent
-function saveCookieConsent(consent) {
-    localStorage.setItem('cookieConsent', JSON.stringify(consent));
-}
-
-// Show banner
-function showCookieBanner() {
-    cookieBanner.classList.add('visible');
-    cookieIcon.classList.remove('visible');
-}
-
-// Hide banner and show icon
-function hideCookieBanner() {
-    cookieBanner.classList.remove('visible');
-    cookieIcon.classList.add('visible');
-}
-
-// Initialize on page load
-if (!getCookieConsent()) {
-    setTimeout(() => {
-        showCookieBanner();
-    }, 1000);
-} else {
-    cookieIcon.classList.add('visible');
-}
-
-// Close button - just hides, shows icon
-if (cookieClose) {
-    cookieClose.addEventListener('click', hideCookieBanner);
-}
-
-// Cookie icon - reopens banner
-if (cookieIcon) {
-    cookieIcon.addEventListener('click', showCookieBanner);
-}
-
-// Accept all
-if (cookieAccept) {
-    cookieAccept.addEventListener('click', () => {
-        saveCookieConsent({
-            necessary: true,
-            analytics: true,
-            marketing: true,
-            timestamp: new Date().toISOString()
+    // YouTube: film wczytuje się dopiero po kliknięciu (bez ciasteczek przed kliknięciem)
+    document.querySelectorAll('.yt[data-yt]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var frame = document.createElement('iframe');
+            frame.src = 'https://www.youtube-nocookie.com/embed/' + btn.dataset.yt + '?autoplay=1&rel=0';
+            frame.title = btn.getAttribute('aria-label') || 'Film';
+            frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            frame.allowFullscreen = true;
+            var box = document.createElement('div');
+            box.className = 'yt';
+            box.appendChild(frame);
+            btn.replaceWith(box);
         });
-        hideCookieBanner();
     });
-}
 
-// Reject all
-if (cookieReject) {
-    cookieReject.addEventListener('click', () => {
-        saveCookieConsent({
-            necessary: true,
-            analytics: false,
-            marketing: false,
-            timestamp: new Date().toISOString()
-        });
-        hideCookieBanner();
-    });
-}
-
-// Save custom selection
-if (cookieSave) {
-    cookieSave.addEventListener('click', () => {
-        saveCookieConsent({
-            necessary: true,
-            analytics: cookieAnalytics ? cookieAnalytics.checked : false,
-            marketing: cookieMarketing ? cookieMarketing.checked : false,
-            timestamp: new Date().toISOString()
-        });
-        hideCookieBanner();
-    });
-}
-
-// ===== VIDEO MODAL =====
-const videoTrigger = document.getElementById('videoTrigger');
-const videoModal = document.getElementById('videoModal');
-const videoModalClose = document.getElementById('videoModalClose');
-const videoModalCloseBtn = document.getElementById('videoModalCloseBtn');
-const videoIframe = document.getElementById('videoIframe');
-const videoSrc = 'https://www.youtube.com/embed/PnaRKAnqV-c?autoplay=1&rel=0';
-
-function openVideoModal() {
-    videoIframe.src = videoSrc;
-    videoModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeVideoModal() {
-    videoModal.classList.remove('active');
-    videoIframe.src = '';
-    document.body.style.overflow = '';
-}
-
-if (videoTrigger) {
-    videoTrigger.addEventListener('click', openVideoModal);
-    videoTrigger.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') openVideoModal();
-    });
-}
-if (videoModalClose) videoModalClose.addEventListener('click', closeVideoModal);
-if (videoModalCloseBtn) videoModalCloseBtn.addEventListener('click', closeVideoModal);
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && videoModal.classList.contains('active')) closeVideoModal();
-});
-
-console.log('Krystian Nagaba - Premium Website Loaded');
+    var rok = document.getElementById('rok');
+    if (rok) rok.textContent = new Date().getFullYear();
+})();
