@@ -160,6 +160,10 @@ h3 { font-size: 1.3rem; line-height: 1.25; letter-spacing: -.01em; }
 .tile-link svg { transition: transform .3s var(--ease); }
 .tile:hover .tile-link svg { transform: translate(3px, -1px); }
 
+.soon { display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; margin-bottom: 14px; padding: 6px 14px; border-radius: 999px; background: var(--centrum-soft); border: 1.5px solid #BBD8F3; color: #1B5A99; font-family: var(--font-display); font-size: .8125rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.soon::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--centrum); }
+.soon-inline { background: var(--white); margin-bottom: 18px; }
+
 /* CENTRUM TERAPII */
 .centrum { padding: clamp(60px, 8vw, 112px) 0; background: linear-gradient(180deg, var(--centrum-soft), #F4F9FE); }
 .centrum-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
@@ -198,23 +202,24 @@ h3 { font-size: 1.3rem; line-height: 1.25; letter-spacing: -.01em; }
 
 /* KSIĄŻKA I DZIENNIK */
 .shelf { padding: clamp(60px, 8vw, 112px) 0; }
-.shelf-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px; align-items: stretch; }
-.book { display: grid; grid-template-columns: .95fr 1.05fr; background: var(--white); border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-.book-cover { background: linear-gradient(160deg, #E9F6F4, #D5EEEA); display: grid; place-items: center; padding: 28px; }
-.book-cover img { width: min(100%, 340px); filter: drop-shadow(0 24px 28px rgba(14, 95, 87, .32)); transition: transform .5s var(--ease); }
+.shelf-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.book { display: grid; grid-template-columns: .44fr .56fr; align-items: stretch; background: var(--white); border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.book-cover { background: linear-gradient(160deg, #E9F6F4, #D5EEEA); display: grid; place-items: center; padding: 40px 32px; }
+.book-cover img { width: min(100%, 430px); filter: drop-shadow(0 24px 28px rgba(14, 95, 87, .32)); transition: transform .5s var(--ease); }
 .book:hover .book-cover img { transform: rotate(-2deg) scale(1.03); }
-.book-body { padding: 34px 34px 32px; }
+.book-body { padding: clamp(32px, 4vw, 56px); align-self: center; }
+.book-body > p:not(.label):not(.book-sub) { max-width: 52ch; }
 .book-body h3 { font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.125rem); margin-bottom: 6px; }
 .book-sub { font-family: var(--font-display); font-weight: 500; font-size: 1.125rem; color: var(--myway-deep); margin-bottom: 14px; }
 .book-actions { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; }
 .ticks { margin-top: 18px; display: grid; gap: 10px; }
 .ticks li { position: relative; padding-left: 30px; }
 .ticks li::before { content: ''; position: absolute; left: 0; top: .32em; width: 20px; height: 20px; border-radius: 50%; background: var(--myway) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 13px no-repeat; }
-.journal { background: var(--white); border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
-.journal img { width: 100%; aspect-ratio: 760 / 500; object-fit: cover; }
-.journal-body { padding: 26px 28px 28px; display: flex; flex-direction: column; flex: 1; }
-.journal-body p:not(.label) { color: var(--muted); margin: 8px 0 22px; }
-.journal-body .btn { margin-top: auto; align-self: flex-start; }
+.journal { background: var(--white); border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; display: grid; grid-template-columns: 300px 1fr auto; align-items: center; }
+.journal img { width: 100%; height: 100%; min-height: 200px; object-fit: cover; }
+.journal-body { padding: 26px 32px; }
+.journal-body p:not(.label) { color: var(--muted); margin-top: 8px; }
+.journal > .btn { margin: 0 32px 0 0; }
 
 /* O MNIE */
 .about { padding: clamp(60px, 8vw, 112px) 0; background: var(--white); border-block: 1px solid var(--line); }
@@ -309,7 +314,9 @@ a.way:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255,
     .hero-grid, .centrum-grid, .about-grid, .consult-grid, .contact-grid, .faq-grid { grid-template-columns: 1fr; }
     .hero-visual { order: -1; width: min(100%, 420px); }
     .hero-lead { max-width: 46ch; }
-    .podcast-head, .podcast-grid, .shelf-grid { grid-template-columns: 1fr; }
+    .podcast-head, .podcast-grid { grid-template-columns: 1fr; }
+    .journal { grid-template-columns: 240px 1fr; }
+    .journal > .btn { grid-column: 2; justify-self: start; margin: 0 0 26px 32px; }
     .studio { max-height: 420px; }
     .head-left { position: static; margin-bottom: 28px; }
     .social-grid { grid-template-columns: repeat(2, 1fr); }
@@ -338,7 +345,11 @@ a.way:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255,
     .centrum-list li { min-height: 64px; }
     .centrum-actions .btn, .episode-actions .btn, .book-actions .btn { flex: 1 1 100%; }
     .episode-body, .book-body { padding: 24px 22px 26px; }
-    .book-cover img { width: min(70%, 240px); }
+    .book-cover img { width: min(78%, 300px); }
+    .journal { grid-template-columns: 1fr; }
+    .journal img { height: auto; aspect-ratio: 760 / 500; }
+    .journal-body { padding: 24px 22px 18px; }
+    .journal > .btn { grid-column: 1; margin: 0 22px 26px; justify-self: stretch; }
     .yt-play { width: 68px; height: 68px; margin: -34px 0 0 -34px; }
     .faq-list summary { font-size: 1.0625rem; padding: 18px 2px; }
     .faq-list details p { padding-right: 8px; }
